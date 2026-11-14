@@ -1,4 +1,5 @@
-# zalvantic-client-portal-rameen-ahmad
+# Zalvantic Client Portal
+
 A client portal where clients follow their project, approve milestones, share files and view invoices. Built as part of my internship with **Zalvantic** (programme: Building What's Next).
 
 **Author:** Rameen Ahmad
@@ -15,18 +16,33 @@ A client portal where clients follow their project, approve milestones, share fi
 Node.js, Express, MongoDB with Mongoose, React with Vite, TypeScript, Zod, JWT, multer, pdfkit, nodemailer, Jest, Supertest, Playwright, Docker.
 
 ## Setup and run
-> To be completed as the project grows.
 
-1. Clone the repository
-2. Copy `server/.env.example` to `server/.env` and fill in the values
-3. Install and run the server: `cd server && npm install && npm run dev`
-4. Install and run the client: `cd client && npm install && npm run dev`
-5. Seed demo data: `[seed command]`
+1. Clone the repository.
+2. Copy `server/.env.example` to `server/.env` and fill in `MONGODB_URI`, `JWT_SECRET` and `PORT`.
+3. Start the server:
+   ```
+   cd server
+   npm install
+   npm run seed
+   npm run dev
+   ```
+4. In a second terminal, start the client:
+   ```
+   cd client
+   npm install
+   npm run dev
+   ```
+5. Open http://localhost:5173
+
+Demo logins (synthetic data, password `Password123!`):
+- Admin: `admin@zalvantic.test`
+- Client: `ali@acme.test`
+- Client: `sara@globex.test`
 
 All data is synthetic demo data. No real client or personal data is used.
 
 ## Architecture
-> To be completed. Explain the folders, how login works, and how client data is filtered by `clientId`.
+> To be completed.
 
 ## Weekly pull requests
 | Week | Task | Pull request |
@@ -41,37 +57,10 @@ All data is synthetic demo data. No real client or personal data is used.
 | 8 | Make it shippable | [link] |
 
 ## Learning log
-What I tried, what failed, and what worked.
-
-- Week 1: [notes]
+- Week 1: Set up an Express server connected to MongoDB Atlas. Built JWT login with two roles (admin and client) and a seed script. Learned that the server must check the token and the role on every protected route. Problems I hit: Git was using another GitHub account's saved login (fixed in Windows Credential Manager), PowerShell blocked npm scripts (fixed with the execution policy setting), and I created React files inside the server folder by mistake (moved them to `client/src`).
 
 ## What I learned
 > To be completed at the end.
 
 ## Credit
 Built as part of my internship experience with Zalvantic.
-2. The pull request template
-In VS Code’s file list, make a folder named .github (with the dot).
-Inside it, make a file named pull_request_template.md.
-Paste exactly this and save. Don’t fill anything in yet. Leave it as it is, because GitHub copies it into every PR and you fill it in each week:
-markdown
-## Week N: <task title>
-
-### Summary
-What did you build this week, in 3-5 lines?
-
-### How to run or test it
-Exact commands or links so anyone can see it working.
-
-### Screenshots or demo
-Add images, a short video, or links.
-
-### "Done when" checklist
-- [ ] Condition from the task card
-- [ ] Condition from the task card
-
-### AI tools used
-Which tools, for what, and what you checked yourself.
-
-### What I learned, and what is still unclear
-Notes for yourself and for anyone reading your repository.
